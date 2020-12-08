@@ -40,8 +40,11 @@ star_lum = []
 for i in range(1,len(temp_list)):
     star_names.append(temp_list[i][1])
     star_distance.append(temp_list[i][3])
-    temp_list[i][5] = temp_list[i][5]*0.000954588
-    star_mass.append(temp_list[i][5])
+    try:
+        mass_val = float(temp_list[i][7])
+    except Exception as err:
+        mass_val = 0.0
+    star_mass.append(mass_val *0.000954588)
     #star_radius.append(float(temp_list[i][6])*0.102763)
     star_lum.append(temp_list[i][7])
 
